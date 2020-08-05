@@ -1,21 +1,25 @@
-module.exports = { 
-    root : true, 
-    parser : "@typescript-eslint/parser", 
-    parserOptions : { 
-        ecmaVersion : 5, 
-        sourceType : "module", 
-        ecmaFeatures : { jsx : true, }
-    }, 
-    globals : { 
-        React : "writable"
-    }, 
-    settings: { 
-        react : { 
-            version : "detect"
-        }
-    }, 
-    env : { 
-        node : true, 
-        browser : true
+module.exports = {
+    "env": {
+        "browser": true,
+        "es2020": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
     }
-}
+};
