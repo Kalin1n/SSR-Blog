@@ -1,0 +1,1 @@
+export const GET_ALL_POSTS_STATUS = "GET_ALL_POSTS_STATUS";

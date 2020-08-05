@@ -1,6 +1,13 @@
 import React from "react";
 import Navigation from "../../components/navigation";
-function PostPage({result}){
+import {Post} from "../../interfaces/post";
+import { NextPageContext } from "next";
+
+interface PostPage{
+    result: Post
+}
+
+function PostPage({result}: PostPage){
     return(
         <div>
             <Navigation/>
@@ -13,10 +20,8 @@ function PostPage({result}){
     );
 };
 
-PostPage.getInitialProps = async (ctx) =>{ 
-    console.log("CTX ", ctx.query.id);
+PostPage.getInitialProps = async (ctx: NextPageContext) =>{ 
     var result = await (await fetch("https://simple-blog-api.crew.red/posts/"+ctx.query.id)).json()
-    console.log(result);
     return {result};
 }; 
 
