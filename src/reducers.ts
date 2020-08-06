@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
 import * as types from './types'
 
-var initialGetPosts = {
+const initialGetPosts = {
   posts : [],
   status : ""
 }; 
 
-var initialCreatePost = {
+const initialCreatePost = {
   title : "", 
   body : "", 
   status : ""
@@ -18,7 +18,7 @@ const postsReducer = (state = initialGetPosts, action ) => {
       return {...state, status : action.status, posts : action.payload}
     default: 
       return state;  
-  };
+  }
 };
 
 const createPostReducer = ( state = initialCreatePost, action) => {
@@ -31,7 +31,7 @@ const createPostReducer = ( state = initialCreatePost, action) => {
       return {...state, status : action.status}
     default: 
       return state
-  };
+  }
 };
 
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Navigation from "../components/navigation";
-import {NextPage, NextPageContext, NextComponentType} from "next";
+import styled from "styled-components";
 import {Posts} from "../interfaces/posts";
 import Link from "next/link";
 
@@ -8,27 +8,53 @@ interface indexPageProps {
     posts : Posts[]
 }
 
-const Home = ({posts} : indexPageProps) => {
+const Ul = styled.ul`
+    margin : 0 auto;
+    align-text : center;
+    list-style: none;
+    display: grid;
+    grid-template-rows: 150px 150px 150px;
+    grid-template-columns: 150px 150px 150px;
+    grid-gap: 20px;
+`
+
+const Li = styled.li`
+    font-size: 20px;
+    padding: .5em;
+    background: gold;
+    text-align: center;
+`
+
+const A = styled.a`
+    text-decoration : none;
+`
+
+
+const Home: Next.Page = ({posts} : indexPageProps) => {
     return( 
         <>
         <Navigation/>
             <div>   
                 <h1> Home page </h1>
                 <h2>Last posts </h2>
-                <ul>
-                {posts? posts.map((post) => <li key={post.id}><Link href={`/posts/${post.id}`}><a><h3> Title {post.title}</h3> <p> {post.body}</p></a></Link> </li>): <h2>Loading...</h2>}
-                </ul>
+                <Ul>
+                {posts? posts.map((post) => 
+                    <Li key={post.id}>
+                        <Link href={`/posts/${post.id}`}>
+                            <A>
+                                <h3> Title {post.title}</h3> 
+                                <p> {post.body}</p>
+                            </A>
+                        </Link> 
+                    </Li>): <h2>Loading...</h2>}
+                </Ul>
             </div>
         </>
     );
 };
 
-Home.getInitialProps = async ({req}: NextPageContext)=>{
-    console.log(req);
-    if(!req){ 
-        return{posts : null};
-    }  
-    var result: Posts[] = await ( await fetch("https://simple-blog-api.crew.red/posts")).json();
+Home.getInitialProps = async ()=>{
+    const result: Posts[] = await ( await fetch("https://simple-blog-api.crew.red/posts")).json();
     return{posts : result}
 };
 
