@@ -1,5 +1,5 @@
 // REDUX ACTION TYPES
-export const GET_ALL_POSTS = "GET_ALL_POSTS";
-export const SEND_POST = "SEND_POST";
-export const CHANGE_TITLE = "CHANGE_TITLE";
-export const CHNAGE_BODY = "CHNAGE_BODY";
+export const GET_ALL_POSTS = 'GET_ALL_POSTS'
+export const SEND_POST = 'SEND_POST'
+export const CHANGE_TITLE = 'CHANGE_TITLE'
+export const CHNAGE_BODY = 'CHNAGE_BODY'

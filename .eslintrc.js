@@ -20,6 +20,7 @@ module.exports = {
         "react",
         "@typescript-eslint"
     ],
-    "rules": {
+    "rules": {    
+        "no-var" : 0
     }
 };
