@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
 import * as types from './types'
 
-let initialGetPosts = {
+const initialGetPosts = {
     posts: [],
     status: '',
 }
 
-let initialCreatePost = {
+const initialCreatePost = {
     title: '',
     body: '',
     status: '',
